@@ -51,3 +51,13 @@ aside{
 header#portfolio-header{
   background-image:url(../img/portfolio-header.jpg);
 }
+.nav-tabs.category-tabs > li{
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     zoom:1; /* hasLayout ie7 trigger */
+}
+
+.nav-tabs.category-tabs{
+    text-align:center;
+}

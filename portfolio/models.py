@@ -34,6 +34,11 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = "Categories"
 
+    @property
+    def category_name(self):
+        category_name = self.name.replace(' ', '-')
+        return category_name
+
     def __unicode__(self):
         return unicode(self.name)
 
