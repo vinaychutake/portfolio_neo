@@ -61,3 +61,9 @@ header#portfolio-header{
 .nav-tabs.category-tabs{
     text-align:center;
 }
+.header-content-inner{
+  background-color: rgba(34,34,34,0.7);
+}
+p.sub-header-text{
+  color: #f05f40 !important;
+}
