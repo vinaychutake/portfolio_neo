@@ -75,7 +75,7 @@ p.sub-header-text{
 
 }
 .home-page-blog-section {
-    padding: 40px 0;
+    padding: 20px;
     display: block;
     clear: both;
     overflow: hidden;
@@ -124,6 +124,7 @@ a.navbar-brand{
 }
 .footer .contact-text{
   font-size: 14px !important;
+  font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
 }
 .published-date{
     margin-top: -5px;

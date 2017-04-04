@@ -20,12 +20,12 @@ class IndexView(View):
         for category in categories:
             category_list.append(category.projects.count())
             category_name_list.append(str(category.name))
-        
-        entries = entry.Entry.objects.filter(status=2)
+
+        blog_entries = entry.Entry.objects.filter(status=2)[:3]
 
         data = { 'projects': projects, 'tech_list': tech_list, 'categories':categories, 
                 'category_list': category_list,'category_name_list':category_name_list,
-                'entries':entries }
+                'blog_entries':blog_entries }
         return render(request, 'pages/index.html', data)
 
 class ProjectDetailsView(View):

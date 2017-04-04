@@ -33,7 +33,7 @@ body{
 }
 .zinnia.default a,
 .zinnia.default a:visited{
-  color: #f05f40;
+  /*color: #f05f40;*/
   text-shadow:none;
 }
 .zinnia p{
@@ -41,4 +41,20 @@ body{
 }
 .zinnia #content, .zinnia.right-sidebar #content{
   padding-right: 15px;
+}
+.entry-title a,
+.entry-footer a,
+.zinnia .continue-reading a,
+.entry-info a{
+  color: #f05f40 !important;
+  text-shadow:none; 
+}
+.nav.navbar-nav.navbar-right li a{
+  font-size: 14px;
+}
+.zinnia .container{
+  max-width: 90%;
+}
+#mainNav .container-fluid{
+  padding-right: 0px;
 }
