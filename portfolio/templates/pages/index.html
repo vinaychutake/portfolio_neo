@@ -131,8 +131,8 @@
                 <div class="col-md-4">
                     <div class="row block">
                          <div  id="chartContainer">
-                         <canvas id="can" width="200" height="200" />
-
+                         <!-- <canvas id="can" width="200" height="200" /> -->
+                         <div id="piechart1" ></div>
                         </div> 
                     </div>
                     <div class="row block">
@@ -151,15 +151,43 @@
                 </div> 
             </div>
         </div>
-
+        
     </section>
 
+
+{% endblock %}
+
+{% block extra_js %}
     <script src="{% static 'portfolio/js/tagcanvas.min.js' %}"></script> 
     <script src="{% static 'portfolio/js/canvas_chart.js' %}"></script>
     <script src="{% static 'portfolio/js/canvasjs.min.js' %}"></script>
+    
     <script language="javascript">
-        chartload({{category_list|safe}});
+        /*chartload({{category_list|safe}});*/
         wordcloudload();
     </script>
-    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Technology', 'Used in Projects'],
+          {% for key, value in tech_dict.items %}
+            ['{{key}}', {{value}}],
+          {% endfor %}
+        ]);
+
+        var options = {
+          title: 'Technologies used in projects'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+
+        chart.draw(data, options);
+      }
+
+    </script>    
 {% endblock %}

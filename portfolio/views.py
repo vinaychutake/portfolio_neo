@@ -21,11 +21,19 @@ class IndexView(View):
             category_list.append(category.projects.count())
             category_name_list.append(str(category.name))
 
+        tech_dict = {}
+        for tech in tech_list:
+            tech_dict[tech.name] = 0
+
+        for project in projects:
+            for tech in project.technologies.all():
+                tech_dict[tech.name] += 1
+
         blog_entries = entry.Entry.objects.filter(status=2)[:3]
 
         data = { 'projects': projects, 'tech_list': tech_list, 'categories':categories, 
                 'category_list': category_list,'category_name_list':category_name_list,
-                'blog_entries':blog_entries }
+                'blog_entries':blog_entries ,'tech_dict':tech_dict}
         return render(request, 'pages/index.html', data)
 
 class ProjectDetailsView(View):
