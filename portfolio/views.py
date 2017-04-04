@@ -22,7 +22,7 @@ class IndexView(View):
             category_name_list.append(str(category.name))
         
         entries = entry.Entry.objects.filter(status=2)
-        print(dir(entries[0]))
+
         data = { 'projects': projects, 'tech_list': tech_list, 'categories':categories, 
                 'category_list': category_list,'category_name_list':category_name_list,
                 'entries':entries }

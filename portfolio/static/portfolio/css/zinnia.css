@@ -1,0 +1,44 @@
+header.entry-header{
+  background-image:none;
+  min-height: 0px;
+  text-align: left;
+  margin-top: 20px;
+}
+.zinnia.default #header h1{
+  text-shadow: none;
+  background:none;
+  padding-left:0px;
+  color: #fff;
+  font-size: 50px;
+  font-weight: 700;
+  font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+aside h4{
+  color:#fff !important;
+  font-size: 18px !important;
+}
+aside a{
+  color:#f05f40 !important;
+}
+body{
+  font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif !important;
+}
+.zinnia .entry-info{
+  background:none;
+  padding-left: 0px;
+  font-size: 12px;
+}
+.zinnia.default a,
+.zinnia.default a:visited{
+  color: #f05f40;
+  text-shadow:none;
+}
+.zinnia p{
+  margin-bottom: 8px;
+}
+.zinnia #content, .zinnia.right-sidebar #content{
+  padding-right: 15px;
+}

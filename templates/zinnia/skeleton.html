@@ -19,38 +19,11 @@
     <link rel="home" href="{% url 'zinnia:entry_archive_index' %}" />
     <link rel="stylesheet" type="text/css" media="screen, projection" href="{% static "zinnia/theme/css/screen.css" %}" />
     <link rel="stylesheet" type="text/css" media="print" href="{% static "zinnia/theme/css/print.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "portfolio/css/zinnia.css" %}" />
 
     {% block link %}{% endblock link %}
     {% block script %}{% endblock script %}
-    <style type="text/css">
-      header.entry-header{
-        background-image:none;
-        min-height: 0px;
-      }
-      .zinnia.default #header h1{
-        text-shadow: none;
-        background:none;
-        padding-left:0px;
-        color: #fff;
-        font-size: 50px;
-        font-weight: 700;
-        font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
-        text-transform: uppercase;
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-      aside h4{
-        color:#fff !important;
-        font-size: 18px !important;
-      }
-      aside a{
-        color:#f05f40 !important;
-      }
-      body{
-        font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif !important;
-      }
-
-    </style>>
+    
 {% endblock %}
 
 {% block main %}
@@ -99,32 +72,34 @@
         {% block breadcrumbs %}{% endblock breadcrumbs %}
       </header>
       {% block slider %}{% endblock slider %}
-      <div id="content" class="hfeed" role="main">
-        {% block content %}
-        <div class="links">
-          <h2>{% trans "Useful links" %}</h2>
-          <ul>
-            <li>
-              <a href="{% url 'zinnia:entry_archive_index' %}" title="{% trans "Weblog index" %}">
-                {% trans "Weblog index" %}
-              </a>
-            </li>
-            <li>
-              <a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}">
-                {% trans "Sitemap" %}
-              </a>
-            </li>
-          </ul>
+      <div class="container">
+        <div id="content" class="hfeed" role="main">
+          {% block content %}
+          <div class="links">
+            <h2>{% trans "Useful links" %}</h2>
+            <ul>
+              <li>
+                <a href="{% url 'zinnia:entry_archive_index' %}" title="{% trans "Weblog index" %}">
+                  {% trans "Weblog index" %}
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}">
+                  {% trans "Sitemap" %}
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="search">
+            <h2>{% trans "Search" %}</h2>
+            {% include "zinnia/tags/search_form.html" %}
+          </div>
+          {% endblock content %}
         </div>
-        <div class="search">
-          <h2>{% trans "Search" %}</h2>
-          {% include "zinnia/tags/search_form.html" %}
+        <div id="sidebar" role="complementary">
+          {% block sidebar %}
+          {% endblock sidebar %}
         </div>
-        {% endblock content %}
-      </div>
-      <div id="sidebar" role="complementary">
-        {% block sidebar %}
-        {% endblock sidebar %}
       </div>
       <footer id="footer" role="contentinfo">
       </footer>
