@@ -34,6 +34,7 @@ INSTALLED_APPS = (
     #'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -42,6 +43,10 @@ INSTALLED_APPS = (
     'ckeditor',
     'ckeditor_uploader',
     'adminsortable',
+    'django_comments',
+    'mptt',
+    'tagging',
+    'zinnia',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -112,3 +117,4 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #/home/neosoft/Neosoft_Portfolio/media/media
 MEDIA_URL = '/media/'
 CKEDITOR_UPLOAD_PATH = "uploads/"
+SITE_ID = 1

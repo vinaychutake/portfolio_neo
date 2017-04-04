@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load staticfiles %}
+
+{% block extra_header %}
+    <title>{% block title %}{% endblock title %}{% block title-page %}{% endblock title-page %} - Articles</title>
+    <meta name="robots" content="follow, all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{% block meta-description %}{% trans "Just another Zinnia weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}" />
+    <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}" />
+    <meta name="author" content="Fantomas42" />
+    {% block meta %}{% endblock meta %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen, projection" href="{% static "portfolio/css/base.css" %}" />
+
+    <link rel="pingback" href="/xmlrpc/" />
+    <link rel="shortcut icon" href="{% static "zinnia/theme/img/favicon.ico" %}" />
+    <link rel="home" href="{% url 'zinnia:entry_archive_index' %}" />
+    <link rel="stylesheet" type="text/css" media="screen, projection" href="{% static "zinnia/theme/css/screen.css" %}" />
+    <link rel="stylesheet" type="text/css" media="print" href="{% static "zinnia/theme/css/print.css" %}" />
+
+    {% block link %}{% endblock link %}
+    {% block script %}{% endblock script %}
+    <style type="text/css">
+      header.entry-header{
+        background-image:none;
+        min-height: 0px;
+      }
+      .zinnia.default #header h1{
+        text-shadow: none;
+        background:none;
+        padding-left:0px;
+        color: #fff;
+        font-size: 50px;
+        font-weight: 700;
+        font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+        text-transform: uppercase;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      aside h4{
+        color:#fff !important;
+        font-size: 18px !important;
+      }
+      aside a{
+        color:#f05f40 !important;
+      }
+      body{
+        font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif !important;
+      }
+
+    </style>>
+{% endblock %}
+
+{% block main %}
+  <body class="zinnia {% block theme-class %}default{% endblock theme-class %} {% block color-class %}{% endblock color-class %} {% block sidebar-class %}right-sidebar{% endblock sidebar-class %} {% block body-class %}{% endblock body-class %}">
+        
+
+      
+      <header id="header" role="banner">
+
+        <nav>
+          <ul class="top-navigation">
+            <li>
+              <a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}" class="sitemap" rel="sitemap">
+                {% trans "Sitemap" %}
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'zinnia:entry_feed' %}" title="{% trans "RSS feed of last entries" %}" class="feeds">
+                {% trans "RSS feed" %}
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <form method="get" action="{% url 'zinnia:entry_search' %}">
+          <p>
+            <input type="text" name="pattern" placeholder="{% trans "Keywords..." %}" {% if pattern %}value="{{ pattern }}"{% endif %} />
+            <input type="submit" class="submitbutton" value="OK" />
+          </p>
+        </form>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <!-- <h2 class="section-heading">We've got what you need!</h2> -->
+                <h1 id="homeHeading">Articles</h1>
+                <hr>
+                <p class="sub-header-text">Blog posts to share information and knowledge among fellow developers</p>
+            </div>
+        </div>
+        <!-- <h1>
+          <a href="{% url 'zinnia:entry_archive_index' %}" title="Articles" rel="home">
+            Articles
+          </a>
+        </h1> -->
+        <!-- <blockquote>
+          <p>{% trans " Blog posts to share information and knowledge among fellow developers ." %}</p>
+        </blockquote> -->
+        {% block breadcrumbs %}{% endblock breadcrumbs %}
+      </header>
+      {% block slider %}{% endblock slider %}
+      <div id="content" class="hfeed" role="main">
+        {% block content %}
+        <div class="links">
+          <h2>{% trans "Useful links" %}</h2>
+          <ul>
+            <li>
+              <a href="{% url 'zinnia:entry_archive_index' %}" title="{% trans "Weblog index" %}">
+                {% trans "Weblog index" %}
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}">
+                {% trans "Sitemap" %}
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="search">
+          <h2>{% trans "Search" %}</h2>
+          {% include "zinnia/tags/search_form.html" %}
+        </div>
+        {% endblock content %}
+      </div>
+      <div id="sidebar" role="complementary">
+        {% block sidebar %}
+        {% endblock sidebar %}
+      </div>
+      <footer id="footer" role="contentinfo">
+      </footer>
+  </body>
+
+{% endblock %}

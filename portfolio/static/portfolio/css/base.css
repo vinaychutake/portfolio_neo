@@ -27,7 +27,7 @@ p{
 	font-size: 14px;
 }
 aside{
-	padding: 5px 0px;
+	padding: 15px 0px;
 }
 .published_date{
     border-top: 1px solid;
@@ -66,4 +66,66 @@ header#portfolio-header{
 }
 p.sub-header-text{
   color: #f05f40 !important;
+}
+.block {
+    background: #fff none repeat scroll 0 0;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+
+}
+.home-page-blog-section {
+    padding: 40px 0;
+    display: block;
+    clear: both;
+    overflow: hidden;
+    background: #f3f1f1;
+}
+.blog-section {
+    width: 60%;
+    float: left;
+    margin-right: 5%;
+    }
+.blog-post {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.sidebar {
+    width: 35%;
+    float: left;}
+
+.block {
+    background: #fff none repeat scroll 0 0;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+    border-bottom: 5px solid #e74c3c;
+}
+.zinnia ul, .zinnia ol{
+  margin: auto !important;
+}
+.zinnia.blue a:visited{
+  color: #777 !important;
+}
+#mainNav.navbar-shrink .navbar-brand{
+  color:#F05F40 !important;
+}
+a.navbar-brand{
+  padding: 5px 12px;
+}
+.logo-img{
+  width: 45px;
+  height: 45px;
+}
+.footer .fa-3x {
+    font-size: 17px !important;
+    margin-right: 10px;
+}
+.footer .contact-text{
+  font-size: 14px !important;
+}
+.published-date{
+    margin-top: -5px;
+    margin-bottom: 5px;
 }

@@ -13,17 +13,18 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url, patterns
+from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
+from django.views.static import serve
 from portfolio import views
 
-urlpatterns = patterns('',
+urlpatterns =[
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('portfolio.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-)
+    url(r'^weblog/', include('zinnia.urls')),
+    url(r'^comments/', include('django_comments.urls')),
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+]
 
-urlpatterns += patterns('',
-    (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
-)

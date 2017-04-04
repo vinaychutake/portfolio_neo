@@ -24,6 +24,11 @@
 
     <!-- Theme CSS -->
     <link href="{% static 'portfolio/css/creative.min.css'%}" rel="stylesheet">
+
+    {% block extra_header %}
+
+    {% endblock %}
+
     <link href="{% static 'portfolio/css/base.css'%}" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -32,6 +37,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    {% block extra_css %}
+
+    {% endblock %}
 
 </head>
 
@@ -44,7 +52,9 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="{% url 'index' %}">Portfolio</a>
+                <a class="navbar-brand page-scroll" href="{% url 'index' %}">
+                    <img class="logo-img" src="{% static 'portfolio/img/python_logo.png' %}">
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -56,6 +66,12 @@
                     <li>
                         <a class="page-scroll" href="{% url 'portfolio' %}">Portfolio</a>
                     </li>
+
+                    <li>
+                            <a class="page-scroll"
+                            href="{% url 'zinnia:entry_archive_index' %}">Articles</a>
+                        </li>
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -70,21 +86,24 @@
 
 
 
-    <aside class="bg-dark">
+    <aside class="bg-dark footer">
         <div class="container text-center">
             <div class="call-to-action row">
                 <h4>Let's Get In Touch!</h4>
                 <div class="col-lg-4 col-md-5 col-sm-5 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 text-left">
-                    <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>123-456-6789</p>
+                    <i class="fa fa-phone fa-3x sr-contact"></i><span class='contact-text'>022 4050 0600</span>
                 </div>
                 <div class="col-lg-4 col-md-5 col-sm-5 text-right">
-                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
+                    <!-- <i class="fa fa-envelope-o fa-3x sr-contact"></i><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a> -->
+                    <i class="fa fa-external-link fa-3x sr-contact"></i><a href="www.neosofttech.com"><span class='contact-text'>www.neosofttech.com</span></a>
                 </div>
             </div>
         </div>
     </aside>
+
+    {% block extra_footer %}
+
+    {% endblock %}
 
 
     <!-- jQuery -->
@@ -102,6 +121,10 @@
 
     <!-- Theme JavaScript -->
     <script src="{% static 'portfolio/js/creative.min.js' %}"></script>
+
+    {% block extra_js %}
+
+    {% endblock %}
 
 </body>
 

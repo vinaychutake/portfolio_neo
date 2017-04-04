@@ -32,10 +32,10 @@
                             </td></tr>
                             {% endif %}
                             {% if project.production_link %}
-                            <tr><td><b>Production Link</b> : {{project.production_link}}</td></tr>
+                            <tr><td><b>Production Link</b> : <a href="{{project.production_link}}">{{project.production_link}}</a></td></tr>
                             {% endif %}
                             {% if project.dev_link %}
-                            <tr><td><b>Dev Link</b> : {{project.dev_link}}</td></tr>
+                            <tr><td><b>Dev Link</b> : <a href="{{project.dev_link}}">{{project.dev_link}}</a></td></tr>
                             {% endif %}
                             {% if project.third_party_library %}
                             <tr><td><b>Third Party Libs used</b> : 

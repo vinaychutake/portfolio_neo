@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% load staticfiles %}
 {% block main %}
     <header>
         <div class="header-content">
@@ -62,10 +63,12 @@
         </div>
         <div class="container-fluid">
             <div class="row no-gutter">
-                {% for project in projects %}
+                {% for project in projects|slice:":10" %}
                 <div class="col-lg-4 col-sm-6">
                     <a href="{% url 'project_details' pid=project.id %}" class="portfolio-box">
-                        <img src="{{ project.images.all.0.images.url }}" class="portfolio-box" alt="">
+                        <div class="img-wrapper">
+                            <img src="{{ project.images.all.0.images.url }}" class="portfolio-box" alt="">
+                        </div>
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-name">
@@ -81,8 +84,84 @@
                 </div>
                 {% endfor %}
             </div>
+            <div class="row text-center" style="padding-top: 20px">
+                <a href="{% url 'portfolio' %}" class="page-scroll btn btn-default btn-xl sr-button">Show more!</a>
+            </div>
         </div>
     </section>
     
-   
+    <section>
+        <div class = "container">
+            <div class="row home-page-blog-section">
+                <div class="col-md-8">
+                    <h2>What’s Happening?</h2>
+                    <ul class="blog-post">
+                        {% for entry in entries %}
+                        <li>
+                            <div class="content">
+                                <h3><a href="{{entry.short_url}}">{{entry.title}}</a></h3>
+                                <div class="published-date">{{entry.publication_date}}</div>
+                                {{entry.lead}}
+                                <div class="extra-info">
+                                    <span class="read-more"><a href="{{entry.short_url}}">View more</a></span>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                        <!-- <li>
+                            <div class="content">
+                                <h3><a href="http://mobile.neosofttech.in/article/how-to-distribute-your-ios-app-with-enterprise-account/">How to Distribute your iOS App with Enterprise Account</a></h3>
+                                <p>Hello All Techie’s, Distributing iOS App with Enterprise
+                                     Account helps developer to avoid asking UDID from client. Before 
+                                    starting Developer need Enterprise Account and need to install the 
+                                    corresponding Certificates and Provisional Profile installed 
+                                    on&nbsp;KeyChain and iPhone Utility&nbsp;respectively. Following are the
+                                     steps to Distribute iOS App with Enterprise Account. 1. For 
+                                    (Appcelerator Studio) create IPA […]</p>
+                                
+                                <div class="extra-info">
+                                    <span class="time">23 June 2016 | 07:22 AM</span>
+                                    <span class="read-more"><a href="http://mobile.neosofttech.in/article/how-to-distribute-your-ios-app-with-enterprise-account/">View more</a></span>
+                                </div>
+                            </div>
+                        </li>
+                         -->    
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="row block">
+                         <div  id="chartContainer">
+                         <canvas id="can" width="200" height="200" />
+
+                        </div> 
+                    </div>
+                    <div class="row block">
+                        <div id="myCanvasContainer">
+                          <canvas id="myCanvas">
+                          </canvas>
+                        </div>
+                            <div id="tags">
+                              <ul>
+                                <li><a href="http://www.google.com" target="_blank">Google</a></li>
+                                <li><a href="http://www.google.com" target="_blank">Fish</a></li>
+                                <li><a href="http://www.google.com" target="_blank">Chips</a></li>
+                                <li><a href="http://www.google.com" target="_blank">Salt</a></li>
+                                <li><a href="http://www.google.com" target="_blank">Vinegar</a></li>
+                              </ul>
+                            </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+    </section>
+
+    <script src="{% static 'portfolio/js/tagcanvas.min.js' %}"></script> 
+    <script src="{% static 'portfolio/js/canvas_chart.js' %}"></script>
+    <script src="{% static 'portfolio/js/canvasjs.min.js' %}"></script>
+    <script language="javascript">
+        chartload({{category_list|safe}});
+        wordcloudload();
+    </script>
+    
 {% endblock %}

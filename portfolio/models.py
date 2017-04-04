@@ -78,7 +78,7 @@ class Project(SortableMixin):
     technologies = models.ManyToManyField(Technology)
     images = models.ManyToManyField(ProjectImage)
     order_sequence = models.IntegerField(default=0)
-    category = models.ForeignKey(Category, blank=True, null=True)
+    category = models.ForeignKey(Category, blank=True, null=True, related_name='projects')
     client_name = models.CharField(max_length=60,null=True,blank=True)
     version_control = models.ForeignKey(Versioning, null=True)
     localization = models.BooleanField(default=False,help_text=" ::- need to add.")
