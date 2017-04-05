@@ -47,12 +47,6 @@
             </li>
           </ul>
         </nav>
-        <form method="get" action="{% url 'zinnia:entry_search' %}">
-          <p>
-            <input type="text" name="pattern" placeholder="{% trans "Keywords..." %}" {% if pattern %}value="{{ pattern }}"{% endif %} />
-            <input type="submit" class="submitbutton" value="OK" />
-          </p>
-        </form>
         <div class="header-content">
             <div class="header-content-inner">
                 <!-- <h2 class="section-heading">We've got what you need!</h2> -->
@@ -97,6 +91,14 @@
           {% endblock content %}
         </div>
         <div id="sidebar" role="complementary">
+          <div class="search-box">
+            <form method="get" action="{% url 'zinnia:entry_search' %}">
+              <p>
+                <input type="text" name="pattern" placeholder="{% trans "Keywords..." %}" {% if pattern %}value="{{ pattern }}"{% endif %} />
+                <input type="submit" class="submitbutton" value="OK" />
+              </p>
+            </form>
+          </div>
           {% block sidebar %}
           {% endblock sidebar %}
         </div>

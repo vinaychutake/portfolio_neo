@@ -106,7 +106,12 @@ p.sub-header-text{
     padding: 25px;
     margin-bottom: 30px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
-    border-bottom: 5px solid #e74c3c;
+    border-bottom: 5px solid #31708f;
+}
+.g-chart-block{
+  padding-top: 10px;
+  border-bottom: 5px solid #31708f;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
 }
 .zinnia ul, .zinnia ol{
   margin: auto !important;
@@ -139,3 +144,10 @@ a.navbar-brand{
 .float-right{
   float:right;
 }
+.blue-link{
+  color:#337ab7;
+}
+aside.footer a {
+    color: #fff !important;
+}
+

@@ -58,3 +58,6 @@ body{
 #mainNav .container-fluid{
   padding-right: 0px;
 }
+.zinnia #sidebar p{
+  padding-left: 0px;
+}

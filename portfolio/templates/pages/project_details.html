@@ -20,27 +20,27 @@
                             {% if project.technologies %}
                             <tr><td><b class="field-name">Technologies Used</b> :
                             {% for tech in project.technologies.all %}
-                                {{tech.name}}
+                                {{tech.name}}{% if forloop.last %}{% else %},{% endif %}
                             {% endfor %}
                             </td></tr>
                             {% endif %}
                             {% if project.database_used %}
                             <tr><td><b class="field-name">Database Used</b> : 
                             {% for db in project.database_used.all %}
-                                {{db.name}}
+                                {{db.name}}{% if forloop.last %}{% else %},{% endif %}
                             {% endfor %}
                             </td></tr>
                             {% endif %}
                             {% if project.production_link %}
-                            <tr><td><b class="field-name">Production Link</b> : <a href="{{project.production_link}}">{{project.production_link}}</a></td></tr>
+                            <tr><td><b class="field-name">Production Link</b> : <a href="{{project.production_link}}" class="blue-link">{{project.production_link}}</a></td></tr>
                             {% endif %}
                             {% if project.dev_link %}
-                            <tr><td><b class="field-name">Dev Link</b> : <a href="{{project.dev_link}}">{{project.dev_link}}</a></td></tr>
+                            <tr><td><b class="field-name">Dev Link</b> : <a href="{{project.dev_link}}" class="blue-link">{{project.dev_link}}</a></td></tr>
                             {% endif %}
                             {% if project.third_party_library %}
                             <tr><td><b class="field-name">Third Party Libs used</b> : 
                             {% for lib in project.third_party_library.all %}
-                                {{lib.name}}
+                                {{lib.name}}{% if forloop.last %}{% else %},{% endif %}
                             {% endfor %}
                             </td></tr>
                             {% endif %}
